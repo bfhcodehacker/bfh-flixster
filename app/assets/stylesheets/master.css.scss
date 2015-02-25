@@ -13,6 +13,12 @@
   color: #FFFFFF;
 }
 
+.user_links {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  color: #FFFFFF;
+}
+
 a.navbar-brand {
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 100;
@@ -25,12 +31,55 @@ a.nav {
   color: #FFFFFF;
 }
 
+.navbar-right {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  color: #FFFFFF;
+}
+
+.navbar-right:link {
+  color:none;
+}
+
+li.navbar-right {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  color: #FFFFFF;
+}
+
+li.navbar-right:link {
+  color:none;
+}
+
+li:link {
+  color:none;
+}
+
+a:link {
+  color:none;
+}
+
+body:link {
+  color:none;
+}
+
+a.body:link{
+  color:none;
+}
+
+li.a.navbar-right {
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  color: #FFFFFF;
+}
+
+
 .hero {
-  background: url('hero.jpg') no-repeat center center fixed;
+  background: url('coffee_shop3.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size:cover;
+  background-size: cover;
   height: 375px;
   box-shadow: 0px 3px 8px #2a2a2a;
 }
@@ -67,4 +116,16 @@ body {
   font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
 }
 
+.booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadown: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding:10px;
+}
 
+.booyah-box h2, .booyah-box h2 {
+  margin: 10px;
+}
