@@ -67,7 +67,7 @@ a.body:link{
   color:none;
 }
 
-li.a.navbar-right {
+.navbar-right a {
   font-family: "Helvetica Neue", Helvetica;
   font-weight: 100;
   color: #FFFFFF;
@@ -129,3 +129,9 @@ body {
 .booyah-box h2, .booyah-box h2 {
   margin: 10px;
 }
+
+.clr {
+  clear:both;
+}
+
+
