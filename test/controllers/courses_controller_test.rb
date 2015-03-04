@@ -14,4 +14,11 @@ class CoursesControllerTest < ActionController::TestCase
      assert_response :success
    end
 
+   test "show not found" do 
+     user = FactoryGirl.create(:user)
+     sign_in user
+     get :show, :id => 'OMG'
+     assert_response :not_found
+   end
+
 end

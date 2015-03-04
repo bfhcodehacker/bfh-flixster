@@ -5,6 +5,9 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.where(:id => params[:id]).first
+    if @course.blank?
+      render :text => "Not Found", :status => :not_found
+    end
   end
 
 end
