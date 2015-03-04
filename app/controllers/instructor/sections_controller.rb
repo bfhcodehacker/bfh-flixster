@@ -1,4 +1,5 @@
 class Instructor::SectionsController < ApplicationController
+  before_action :authenticate_user!, :only => [:new, :create]
   def new
     @course = Course.where(:id => params[:course_id]).first
     @section = Section.new
