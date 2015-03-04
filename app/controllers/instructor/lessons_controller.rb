@@ -24,6 +24,11 @@ class Instructor::LessonsController < ApplicationController
     @current_section ||= Section.find(params[:section_id])
   end
 
+  helper_method :current_lesson
+  def current_lesson
+    @current_lesson ||= Lesson.where(:id => params[:id]).first
+  end
+
   def lesson_params
     params.require(:lesson).permit(:title, :subtitle)
   end

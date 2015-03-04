@@ -6,12 +6,13 @@ FactoryGirl.define do
     password "this_test!"
     password_confirmation "this_test!"
   end
+end
 
-  factory :course do
-    title "make spaghetti in the microwave"
-    description "just don't blow up the microwave"
-    cost 42.00
+FactoryGirl.define do 
+  factory :course do 
+    title "it is just a title"
+    description "really just a title"
+    cost "3.33"
     association :user
   end
-
 end

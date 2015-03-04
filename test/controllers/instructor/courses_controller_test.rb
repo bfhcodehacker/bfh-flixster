@@ -49,10 +49,7 @@ class Instructor::CoursesControllerTest < ActionController::TestCase
    test "show found" do 
      user = FactoryGirl.create(:user)
      sign_in user
-     course = FactoryGirl.create(:course)
-     puts " "
-     puts course.user.email
-     puts user.email
+     course = FactoryGirl.create(:course, :user => user)
      get :show, :id => course.id
      assert_response :success
    end

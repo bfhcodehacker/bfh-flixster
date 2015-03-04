@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :lesson do
-    
-  end
+    title "here's a title"
+    subtitle "and it's lower case"    
 
+    association :section, factory: :user
+  end
 end

@@ -4,7 +4,7 @@ class Instructor::SectionsControllerTest < ActionController::TestCase
   test "add section" do 
     user = FactoryGirl.create(:user)
     sign_in user
-    course = FactoryGirl.create(:course)
+    course = FactoryGirl.create(:course, :user => user)
     assert_difference 'course.sections.count' do 
       post :create, {:course_id => course.id, :section => {
         :title => 'Flamethrowers: Good for Cooking'
@@ -31,15 +31,15 @@ class Instructor::SectionsControllerTest < ActionController::TestCase
 #  test "show found" do 
 #    user = FactoryGirl.create(:user)
 #    sign_in user
-#    course = FactoryGirl.create(:course)
-#    section = FactoryGirl.create(:section)   
-#    
+#    course = FactoryGirl.create(:course, :user => user)
+#    section = FactoryGirl.create(:section, :user => user, :course => course)   
+    
 #  end
 
 #  test "new" do 
 #    user = FactoryGirl.create(:user)
 #    sign_in user
-#    course = FactoryGirl.create(:course)
+#    course = FactoryGirl.create(:course, :user => user)
 #    get :new, :id => course.id
 #    assert_response :success
 #  end
