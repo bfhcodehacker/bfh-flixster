@@ -50,6 +50,9 @@ class Instructor::CoursesControllerTest < ActionController::TestCase
      user = FactoryGirl.create(:user)
      sign_in user
      course = FactoryGirl.create(:course)
+     puts " "
+     puts course.user.email
+     puts user.email
      get :show, :id => course.id
      assert_response :success
    end

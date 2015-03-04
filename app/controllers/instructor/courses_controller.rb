@@ -1,5 +1,7 @@
 class Instructor::CoursesController < ApplicationController
   before_action :authenticate_user!
+  before_action :require_authorized_for_current_course, :only => [:show]
+
   def new
     @course = Course.new
   end
@@ -14,13 +16,25 @@ class Instructor::CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.where(:id => params[:id]).first
-    if @course.blank?
-      render :text => "Not Found", :status => :not_found
-    end
   end
 
   private
+
+  def require_authorized_for_current_course
+    if current_course.blank? 
+      render :text => "Not Found", :status => :not_found
+    elsif current_course.user != current_user
+      puts "current_course.user / current_user / course id"
+      puts current_course.user.email, current_user.email, current_course.id
+      puts current_course
+      render :text => "Unauthorized", :status => :unauthorized
+    end
+  end
+
+  helper_method :current_course
+  def current_course
+    @current_course ||= Course.where(:id => params[:id]).first
+  end
 
   def course_params
     params.require(:course).permit(:title, :description, :cost)
