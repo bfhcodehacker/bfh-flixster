@@ -30,6 +30,21 @@ class Instructor::CoursesControllerTest < ActionController::TestCase
      assert_equal 1, user.courses.count
    end
 
+   test "create not signed in" do
+     user = FactoryGirl.create(:user)
+
+     assert_no_difference 'Course.count' do
+       post :create, {:course => {
+         :title => 'shovel snow...',
+         :description => 'with a flamethrower',
+         :cost => 27.95
+         }
+       }
+     end
+
+     assert_redirected_to new_user_session_path
+   end
+
    test "create not valid" do
      user = FactoryGirl.create(:user)
      sign_in user

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class Instructor::SectionsControllerTest < ActionController::TestCase
-  test "add section" do 
+  test "create section" do 
     user = FactoryGirl.create(:user)
     sign_in user
     course = FactoryGirl.create(:course, :user => user)
@@ -12,10 +12,11 @@ class Instructor::SectionsControllerTest < ActionController::TestCase
       }
     end
 
+    assert_equal 1, course.sections.count
     assert_redirected_to instructor_course_path(course)
   end
 
-  test "add section not signed in" do 
+  test "create section not signed in" do 
     user = FactoryGirl.create(:user)
     sign_in user
     course = FactoryGirl.create(:course)
@@ -28,20 +29,35 @@ class Instructor::SectionsControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
-#  test "show found" do 
-#    user = FactoryGirl.create(:user)
-#    sign_in user
-#    course = FactoryGirl.create(:course, :user => user)
-#    section = FactoryGirl.create(:section, :user => user, :course => course)   
-    
-#  end
+  test "create section not valid" do
+    user = FactoryGirl.create(:user)
+    sign_in user
+    course = FactoryGirl.create(:course, :user => user)
+    assert_no_difference 'course.sections.count' do
+      post :create, :course_id => course.id, :section => {
+        :title => ''
+        }
+    end
 
-#  test "new" do 
-#    user = FactoryGirl.create(:user)
-#    sign_in user
-#    course = FactoryGirl.create(:course, :user => user)
-#    get :new, :id => course.id
-#    assert_response :success
-#  end
+    assert_response :unprocessable_entity
+  end
+
+
+  test "new" do 
+    user = FactoryGirl.create(:user)
+    sign_in user
+    course = FactoryGirl.create(:course, :user => user)
+    get :new, :course_id => course.id
+    assert_response :success
+  end
+
+  test "new not signed" do
+    user = FactoryGirl.create(:user)
+    sign_in user
+    course = FactoryGirl.create(:course, :user => user)
+    sign_out user
+    get :new, :course_id => course.id
+    assert_redirected_to new_user_session_path
+  end
 
 end

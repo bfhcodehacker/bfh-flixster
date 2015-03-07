@@ -24,9 +24,6 @@ class Instructor::CoursesController < ApplicationController
     if current_course.blank? 
       render :text => "Not Found", :status => :not_found
     elsif current_course.user != current_user
-      puts "current_course.user / current_user / course id"
-      puts current_course.user.email, current_user.email, current_course.id
-      puts current_course
       render :text => "Unauthorized", :status => :unauthorized
     end
   end
@@ -37,6 +34,6 @@ class Instructor::CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:title, :description, :cost)
+    params.require(:course).permit(:title, :description, :cost, :image)
   end
 end

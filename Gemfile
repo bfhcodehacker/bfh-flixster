@@ -45,6 +45,15 @@ gem 'factory_girl_rails', '~> 4.0'
 # add simple_form gem for forms
 gem 'simple_form'
 
+# add figaro to keep our bing API key out of public view
+gem "figaro", ">= 1.0.0"
+
+# add carrier wave gem for photos
+gem "carrierwave"
+
+# add fog gem to interact with Amazon S3 bucket
+gem "fog", "~> 1.3.1"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
