@@ -3,4 +3,5 @@ class Lesson < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :subtitle, :presence => true
+  mount_uploader :video, VideoUploader
 end

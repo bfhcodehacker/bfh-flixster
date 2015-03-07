@@ -5,6 +5,10 @@
   <p>
     <%= current_lesson.subtitle %>
   </p>  
+  <% if current_lesson.video.present? %>
+    <%= link_to 'Video', current_lesson.video.to_s %>
+  <% end %>
+
 </div>
 
 
