@@ -1,11 +1,20 @@
 class LessonsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :require_authorized_for_current_lesson, :only => [:show]
+
   def show
-    if current_lesson.blank?
-      render :text => "Not Found", :status => :not_found
-    end
   end
 
   private
+
+  def require_authorized_for_current_lesson
+    if current_lesson.blank?
+      render :text => "Not Found", :status => :not_found
+    elsif !current_user.enrolled_in?(current_lesson.section.course)
+      redirect_to course_path(current_lesson.section.course), :alert => 'Not Enrolled in This Course'
+    end
+  end
+
   helper_method :current_lesson
   def current_lesson
     @current_lesson ||= Lesson.where(:id => params[:id]).first
