@@ -57,6 +57,9 @@ gem "fog", "~> 1.3.1"
 # add mini_magick for image manipulation
 gem 'mini_magick'
 
+# add stripe gem for credit card payments
+gem 'stripe'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
