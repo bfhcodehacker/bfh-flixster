@@ -5,6 +5,6 @@ class Section < ActiveRecord::Base
   validates :title, :presence => true
 
   include RankedModel
-  ranks :row_order, :with_same => :section_id
+  ranks :row_order, :with_same => :course_id
 
 end
