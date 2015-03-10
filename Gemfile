@@ -63,6 +63,9 @@ gem 'stripe'
 # add ranked-model to reorder lessons
 gem 'ranked-model'
 
+# add jquery-ui
+gem 'jquery-ui-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
