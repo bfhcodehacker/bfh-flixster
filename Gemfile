@@ -60,6 +60,9 @@ gem 'mini_magick'
 # add stripe gem for credit card payments
 gem 'stripe'
 
+# add ranked-model to reorder lessons
+gem 'ranked-model'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
